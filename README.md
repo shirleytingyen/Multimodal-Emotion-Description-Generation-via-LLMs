@@ -20,35 +20,36 @@ Conventional multimodal sentiment analysis often relies on predicting numerical 
 
 The framework consists of three sequential modules:
 
+```
 +-----------------------------------------------------------------------------------+
-|                            Multimodal Inputs (CMU-MOSEI)                           |
+|                            Multimodal Inputs (CMU-MOSEI)                          |
 |  [Visual: FACET/OpenFace]      [Acoustic: COVAREP]       [Language: GloVe/Text]   |
 +--------------------------+-------------------+------------------------------------+
-│
-▼
+                                     │
+                                     ▼
 +-----------------------------------------------------------------------------------+
 |                        Feature Processing & Energy Metric                         |
 |  - Clean NaN / Inf values via zero-padding                                        |
 |  - Compute Vector Norms (L2): Face Energy ||F||, Audio Energy ||A||, Text Energy  |
 |  - Extract 7-D Label Vector: [Sentiment, Happy, Sad, Anger, Surprise, Disgust, Fear]|
 +------------------------------------+----------------------------------------------+
-│
-▼
+                                     │
+                                     ▼
 +-----------------------------------------------------------------------------------+
 |                       Structured Prompting & LLM Synthesis                        |
 |  - Filter active emotions (threshold > 0.6) and clean transcript text              |
 |  - Construct structured prompt for GPT-4o-mini (Temp: 0.6, Max Tokens: 80)         |
 +------------------------------------+----------------------------------------------+
-│
-▼
+                                     │
+                                     ▼
 +-----------------------------------------------------------------------------------+
 |                 Output: Single-Sentence Interpretable Description                 |
 +-----------------------------------------------------------------------------------+
+```
 
 1. **Feature Extraction & Normalization:** Cleans missing/invalid values and extracts continuous sentiment scores and 6 Ekman emotion intensities.
 2. **Modality Energy Quantification:** Computes $L_2$-norms ($E_{\text{face}} = \|\mathbf{F}\|_2$, $E_{\text{audio}} = \|\mathbf{A}\|_2$, $E_{\text{text}} = \|\mathbf{T}\|_2$) to represent cross-modal signal magnitude.
 3. **Structured Synthesis Engine:** Maps active emotion categories and modality energy metrics into a structured prompt, guiding `gpt-4o-mini` to output a unified description.
-
 ---
 
 ## 4. Evaluation & Experimental Results
