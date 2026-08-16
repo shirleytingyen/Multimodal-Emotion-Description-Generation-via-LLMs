@@ -5,7 +5,7 @@ This repository contains the implementation of a multimodal framework that integ
 ---
 
 ## Abstract
-Conventional multimodal sentiment analysis often relies on predicting numerical scores (e.g., -3 to +3) or discrete emotion categories (e.g., happy, sad). While effective, these outputs lack qualitative interpretability regarding *how* an emotion is physically expressed across modalities. We propose a unified pipeline that processes multi-channel signals—facial movements (FACET/OpenFace), acoustic features (COVAREP), and textual embeddings (GloVe)—and calculates modality energy metrics ($L_2$-norms). These features are converted into structured prompts to guide **GPT-4o-mini**, which synthesizes low-level metrics into a coherent, single-sentence description capturing facial expressions, vocal tone, emotion intensity, and spoken topic.
+Conventional multimodal sentiment analysis often relies on predicting numerical scores (e.g., -3 to +3) or discrete emotion categories (e.g., happy, sad). While effective, these outputs lack qualitative interpretability regarding *how* an emotion is physically expressed across modalities. We propose a unified pipeline that processes multi-channel signals—facial movements (FACET/OpenFace), acoustic features (COVAREP), and textual embeddings (GloVe)—and calculates modality energy metrics ($L_2$-norms). These features are converted into structured prompts to guide GPT-4o-mini, which synthesizes low-level metrics into a coherent, single-sentence description capturing facial expressions, vocal tone, emotion intensity, and spoken topic.
 
 
 ## Motivation
@@ -46,7 +46,9 @@ The framework consists of three sequential modules:
 ```
 
 **Feature Extraction & Normalization:** Cleans missing/invalid values and extracts continuous sentiment scores and 6 Ekman emotion intensities.
+
 **Modality Energy Quantification:** Computes L2-norms (`E_face = ||F||_2`, `E_audio = ||A||_2`, `E_text = ||T||_2`) to represent cross-modal signal magnitude.
+
 **Structured Synthesis Engine:** Maps active emotion categories and modality energy metrics into a structured prompt, guiding `gpt-4o-mini` to output a unified description.
 
 ## Evaluation & Experimental Results
