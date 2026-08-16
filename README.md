@@ -71,7 +71,7 @@ Extracted feature norm distributions across CMU-MOSEI samples:
 
 ---
 
-## 💾 Dataset Setup
+## 📥 Dataset Setup
 
 This project uses the **CMU-MOSEI** (CMU Multimodal Opinion Sentiment and Emotion Intensity) Dataset for multimodal research and natural language integration.
 
