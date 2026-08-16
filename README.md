@@ -70,3 +70,26 @@ Extracted feature norm distributions across CMU-MOSEI samples:
 * **Strict Constraint Adherence:** Achieved 100% compliance with single-sentence output constraints while maintaining contextual richness across facial cues, voice tone, and spoken content.
 
 ---
+
+## 💾 Dataset Setup
+
+This project uses the **CMU-MOSEI** (CMU Multimodal Opinion Sentiment and Emotion Intensity) Dataset for multimodal research and natural language integration.
+
+### Manual Download
+
+You can download the dataset directly from Zenodo:
+* **Dataset Link:** [Zenodo - CMU-MOSEI Dataset](https://zenodo.org/records/18668043)
+
+### Expected Directory Structure
+
+After downloading, extract the files and place them into the `data/cmu_mosei/` directory as follows:
+
+```text
+3D-Human-Action-Recognition-with-Natural-Language/
+├── data/
+│   └── cmu_mosei/
+│       ├── Audio/
+│       ├── Language/
+│       ├── Visual/
+│       └── labels/
+└── ...
