@@ -45,11 +45,9 @@ The framework consists of three sequential modules:
 +-----------------------------------------------------------------------------------+
 ```
 
-**Feature Extraction & Normalization:** Cleans missing/invalid values and extracts continuous sentiment scores and 6 Ekman emotion intensities.
-
-**Modality Energy Quantification:** Computes L2-norms (`E_face = ||F||_2`, `E_audio = ||A||_2`, `E_text = ||T||_2`) to represent cross-modal signal magnitude.
-
-**Structured Synthesis Engine:** Maps active emotion categories and modality energy metrics into a structured prompt, guiding `gpt-4o-mini` to output a unified description.
+* **Feature Extraction & Normalization:** Cleans missing/invalid values and extracts continuous sentiment scores and 6 Ekman emotion intensities.
+* **Modality Energy Quantification:** Computes L2-norms (`E_face = ||F||_2`, `E_audio = ||A||_2`, `E_text = ||T||_2`) to represent cross-modal signal magnitude.
+* **Structured Synthesis Engine:** Maps active emotion categories and modality energy metrics into a structured prompt, guiding `gpt-4o-mini` to output a unified description.
 
 ## Evaluation & Experimental Results
 
